@@ -1954,6 +1954,15 @@ executable(
         install : true,
         install_dir : systemgeneratordir)
 
+executable(
+        'systemd-meow',
+        'src/meow/meow.c',
+        include_directories : includes,
+        link_with : [libshared],
+        install_rpath : rootlibexecdir,
+        install : true,
+        install_dir : rootbindir)
+
 if conf.get('ENABLE_ENVIRONMENT_D') == 1
         executable(
                 '30-systemd-environment-d-generator',
